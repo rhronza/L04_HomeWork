@@ -1,10 +1,9 @@
 package mainpackage;
 
-/* Zadání úkolu:
- * 1. vyvořit objekt který bude obsahovat aspoň jeden list
- * 2. převést obvjekt do GSON specifikace
- * y do JSON
- * 3. zapsat objekty do tewxtového souboru pomocí  
+/* Zadání:
+ * Vytvořit vlastní kolekci objektů v Listu. Tuhle kolekci projít a 
+ * jako json formát uložit do souboru pomocí commons-io knihovny (maven) 
+ * a utils metod v ní
  */
 
 public class Main {
