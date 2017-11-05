@@ -1,5 +1,18 @@
 package mainpackage;
 
+
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.*;
+//import org.apache.commons.io.FileUtils;
+
+import com.google.gson.Gson;
+
+
+
+
 /* Zadání:
  * Vytvořit vlastní kolekci objektů v Listu. Tuhle kolekci projít a 
  * jako json formát uložit do souboru pomocí commons-io knihovny (maven) 
@@ -8,6 +21,13 @@ package mainpackage;
 
 public class Main {
 
+	public static final String NAME_OUTPUT_FILE_NAME = "OUTPUT.TXT";
+	
+	public static final File outputFileName = new File(NAME_OUTPUT_FILE_NAME);
+	
+	public static final String APPLICATION_CODE_PAGE = "UTF-8"; 
+	
+	
 	public static void main(String[] args) {
 		
 		/* vytvoření kolekce objektů v Listu: */
@@ -31,8 +51,30 @@ public class Main {
 		Ware ware9 = new Ware("pork", 11, 2489);
 		wareHouse.getListProductsWareHouse().add(ware9);
 		
+		Gson gson = new Gson();
+		String json = gson.toJson(wareHouse.getNameOfWareHouse());
+		System.out.println(json);
+		
+		
+		try {
+			
+			FileUtils.writeStringToFile(outputFileName, json, APPLICATION_CODE_PAGE, false);
+		} catch (IOException e) {
+			System.out.println("Chyba zápisu do souboru");
+			e.printStackTrace();
+		}
+		
 		for (Ware w: wareHouse.getListProductsWareHouse()) {
-			System.out.println(w.getNameWare()+", "+w.getMinimumAmountWare()+", "+w.getCurrentAmountWare());
+			json = gson.toJson(w);
+			System.out.println(json);
+			/*	System.out.println(w.getNameWare()+", "+w.getMinimumAmountWare()+", "+w.getCurrentAmountWare());*/
+			try {
+				FileUtils.writeStringToFile(outputFileName, json, APPLICATION_CODE_PAGE, true);
+			} catch (IOException e) {
+				System.out.println("Chyba zápisu do souboru2");
+				e.printStackTrace();
+			}
+			
 		}
 		
 		
