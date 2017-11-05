@@ -11,13 +11,16 @@ import org.apache.commons.io.*;
 import com.google.gson.Gson;
 
 
-
-
-/* Zadáno:
+/* Zadání:
  * Vytvořit vlastní kolekci objektů v Listu. Tuhle kolekci projít a 
  * jako json formát uložit do souboru pomocí commons-io knihovny (maven) 
  * a utils metod v ní
  */
+
+/*Řešení
+ * předmětem je sklad (WareHouse), který obsahuje název skladz a seznam zboží na skladě (Ware)
+*/ 
+
 
 public class Main {
 
@@ -51,36 +54,27 @@ public class Main {
 		Ware ware9 = new Ware("pork", 11, 2489);
 		wareHouse.getListProductsWareHouse().add(ware9);
 		
+		/* převod názvu Skladiště na Json formátu */
 		Gson gson = new Gson();
 		String json = gson.toJson(wareHouse.getNameOfWareHouse());
-		System.out.println(json);
 		
-		
+		/* zápis názvu skladiště do textového souboru*/
 		try {
-			
-			FileUtils.writeStringToFile(outputFileName, json, APPLICATION_CODE_PAGE, false);
+			FileUtils.writeStringToFile(outputFileName, json+"\n", APPLICATION_CODE_PAGE, false);
 		} catch (IOException e) {
-			System.out.println("Chyba zápisu do souboru");
-			e.printStackTrace();
+			System.out.println("Chyba 1 při zápisu do souboru");
 		}
 		
+		/* iterace Seznamu zboží na skladě a zápis záznamu do textového souboru prostřednictvím */ 
 		for (Ware w: wareHouse.getListProductsWareHouse()) {
 			json = gson.toJson(w);
 			System.out.println(json);
 			/*	System.out.println(w.getNameWare()+", "+w.getMinimumAmountWare()+", "+w.getCurrentAmountWare());*/
 			try {
-				FileUtils.writeStringToFile(outputFileName, json, APPLICATION_CODE_PAGE, true);
+				FileUtils.writeStringToFile(outputFileName, json+"\n  ", APPLICATION_CODE_PAGE, true);
 			} catch (IOException e) {
-				System.out.println("Chyba zápisu do souboru2");
-				e.printStackTrace();
+				System.out.println("Chyba 2 při zápisu do souboru2");
 			}
-			
 		}
-		
-		
-		
-		
-
 	}
-
 }
