@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.*;
-//import org.apache.commons.io.FileUtils;
 
 import com.google.gson.Gson;
 
@@ -19,19 +18,22 @@ import com.google.gson.Gson;
 
 /*Řešení
  * předmětem je sklad (WareHouse), který obsahuje název skladz a seznam zboží na skladě (Ware)
+ * převod na Json fomát proveden pomocí konihovny GSson verze 2.8.2 a zápis do souboru proveden pomocí 
+ * statické metody writeStringToFile třídy FileUtils
 */ 
 
 
 public class Main {
 
-	public static final String NAME_OUTPUT_FILE_NAME = "OUTPUT.TXT";
+	public static final String NAME_OUTPUT_FILE = "OUTPUT.TXT";
 	
-	public static final File outputFileName = new File(NAME_OUTPUT_FILE_NAME);
+	public static final File outputFileName = new File(NAME_OUTPUT_FILE);
 	
 	public static final String APPLICATION_CODE_PAGE = "UTF-8"; 
 	
 	
 	public static void main(String[] args) {
+		System.out.println("Začátek programu");
 		
 		/* vytvoření kolekce objektů v Listu: */
 		WareHouse wareHouse = new WareHouse("Warehouse of food");
@@ -68,13 +70,12 @@ public class Main {
 		/* iterace Seznamu zboží na skladě a zápis záznamu do textového souboru prostřednictvím */ 
 		for (Ware w: wareHouse.getListProductsWareHouse()) {
 			json = gson.toJson(w);
-			System.out.println(json);
-			/*	System.out.println(w.getNameWare()+", "+w.getMinimumAmountWare()+", "+w.getCurrentAmountWare());*/
 			try {
 				FileUtils.writeStringToFile(outputFileName, json+"\n  ", APPLICATION_CODE_PAGE, true);
 			} catch (IOException e) {
-				System.out.println("Chyba 2 při zápisu do souboru2");
+				System.out.println("Chyba 2 při zápisu do souboru");
 			}
 		}
+		System.out.println("Konec programu - výsledek je v souboru "+NAME_OUTPUT_FILE);
 	}
 }

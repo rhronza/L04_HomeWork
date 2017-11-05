@@ -1,0 +1,11 @@
+"Warehouse of food"
+{"nameWare":"milk","minimumAmountWare":10,"currentAmountWare":1250}
+  {"nameWare":"chees","minimumAmountWare":9,"currentAmountWare":1145}
+  {"nameWare":"beef","minimumAmountWare":7,"currentAmountWare":1187}
+  {"nameWare":"butter","minimumAmountWare":18,"currentAmountWare":1450}
+  {"nameWare":"vegetable butter","minimumAmountWare":18,"currentAmountWare":1111}
+  {"nameWare":"orange","minimumAmountWare":22,"currentAmountWare":2222}
+  {"nameWare":"potatoes","minimumAmountWare":33,"currentAmountWare":4444}
+  {"nameWare":"rice","minimumAmountWare":14,"currentAmountWare":5214}
+  {"nameWare":"pork","minimumAmountWare":11,"currentAmountWare":2489}
+  
