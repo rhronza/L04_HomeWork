@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 
 
 
-/* Zadání:
+/* Zadáno:
  * Vytvořit vlastní kolekci objektů v Listu. Tuhle kolekci projít a 
  * jako json formát uložit do souboru pomocí commons-io knihovny (maven) 
  * a utils metod v ní
