@@ -56,7 +56,7 @@ public class Main {
 		Ware ware9 = new Ware("pork", 11, 2489);
 		wareHouse.getListProductsWareHouse().add(ware9);
 		
-		/* převod názvu Skladiště na Json formátu */
+		/* převod názvu Skladiště na Json formát */
 		Gson gson = new Gson();
 		String json = gson.toJson(wareHouse.getNameOfWareHouse());
 		
