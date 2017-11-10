@@ -7,5 +7,5 @@
   {"nameWare":"orange","minimumAmountWare":22,"currentAmountWare":2222}
   {"nameWare":"potatoes","minimumAmountWare":33,"currentAmountWare":4444}
   {"nameWare":"rice","minimumAmountWare":14,"currentAmountWare":5214}
-  {"nameWare":"pork","minimumAmountWare":11,"currentAmountWare":2489}
+  {"nameWare":"pork","minimumAmountWare":11,"currentAmountWare":7777}
   

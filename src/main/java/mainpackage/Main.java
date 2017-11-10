@@ -31,6 +31,9 @@ public class Main {
 	
 	public static final String APPLICATION_CODE_PAGE = "UTF-8"; 
 	
+	/* převod názvu Skladiště na Json formát */
+	public static Gson GSON = new Gson();
+	
 	
 	public static void main(String[] args) {
 		System.out.println("Začátek programu");
@@ -53,12 +56,11 @@ public class Main {
 		wareHouse.getListProductsWareHouse().add(ware7);
 		Ware ware8 = new Ware("rice", 14, 5214);
 		wareHouse.getListProductsWareHouse().add(ware8);
-		Ware ware9 = new Ware("pork", 11, 2489);
+		Ware ware9 = new Ware("pork", 11, 7777);
 		wareHouse.getListProductsWareHouse().add(ware9);
 		
-		/* převod názvu Skladiště na Json formát */
-		Gson gson = new Gson();
-		String json = gson.toJson(wareHouse.getNameOfWareHouse());
+		
+		String json = GSON.toJson(wareHouse.getNameOfWareHouse());
 		
 		/* zápis názvu skladiště do textového souboru*/
 		try {
@@ -69,7 +71,7 @@ public class Main {
 		
 		/* iterace Seznamu zboží na skladě a zápis záznamu do textového souboru prostřednictvím */ 
 		for (Ware w: wareHouse.getListProductsWareHouse()) {
-			json = gson.toJson(w);
+			json = GSON.toJson(w);
 			try {
 				FileUtils.writeStringToFile(outputFileName, json+"\n  ", APPLICATION_CODE_PAGE, true);
 			} catch (IOException e) {
